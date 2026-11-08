@@ -107,6 +107,8 @@
                     <h2>Resultados da pesquisa</h2>
                 </div>
 
+                <!-- FILTRO GERAL -->
+
                 <div class="filter">
 
                     <label for="chartFilter">
@@ -134,9 +136,11 @@
             </div>
 
 
-            <!-- GRÁFICO DE PIZZA -->
+            <!-- GRÁFICOS -->
 
             <div class="charts-grid">
+
+                <!-- GRÁFICO DE PIZZA -->
 
                 <article class="chart-card" id="usageCard">
 
@@ -189,6 +193,37 @@
                         algum conhecimento?
                     </p>
 
+
+                    <!-- NOVO FILTRO DE DADOS -->
+
+                    <div class="data-filter-box">
+
+                        <label for="dataFilter">
+                            FILTRAR DADOS DO GRÁFICO
+                        </label>
+
+                        <select id="dataFilter">
+
+                            <option value="all">
+                                Todas as respostas
+                            </option>
+
+                            <option value="highlight">
+                                Destacar resposta predominante
+                            </option>
+
+                        </select>
+
+                        <small>
+                            Escolha como deseja visualizar os resultados
+                            da pesquisa.
+                        </small>
+
+                    </div>
+
+
+                    <!-- GRÁFICO ORIGINAL -->
+
                     <div class="chart-area">
                         <canvas id="learningChart"></canvas>
                     </div>
@@ -196,6 +231,7 @@
                 </article>
 
             </div>
+
 
             <p class="source">
                 Fonte: pesquisa realizada pelo Google Forms ·
@@ -210,15 +246,30 @@
         <section class="conclusion-research-section">
 
             <div class="conclusion-research-header">
+
                 <div class="conclusion-research-icon">✓</div>
 
                 <h2>Conclusão da pesquisa</h2>
+
             </div>
 
             <div class="conclusion-research-text">
 
                 <p>
-                    Os resultados da investigação confirmam a hipótese de que o uso da inteligência artificial pode comprometer a aprendizagem e a autonomia intelectual dos estudantes quando não é acompanhado de reflexão e análise crítica. Embora a maioria dos participantes afirme ler e obter conhecimentos por meio das respostas da IA, também foram identificados estudantes que analisam as informações, mas não conseguem adquirir conhecimento, além daqueles que apenas copiam as respostas. Dessa forma, percebe-se que a inteligência artificial pode ser uma importante ferramenta de apoio aos estudos, mas não deve substituir o pensamento crítico, a interpretação e a construção do conhecimento pelo próprio estudante.
+                    Os resultados da investigação confirmam a hipótese
+                    de que o uso da inteligência artificial pode
+                    comprometer a aprendizagem e a autonomia intelectual
+                    dos estudantes quando não é acompanhado de reflexão
+                    e análise crítica. Embora a maioria dos participantes
+                    afirme ler e obter conhecimentos por meio das
+                    respostas da IA, também foram identificados estudantes
+                    que analisam as informações, mas não conseguem adquirir
+                    conhecimento, além daqueles que apenas copiam as
+                    respostas. Dessa forma, percebe-se que a inteligência
+                    artificial pode ser uma importante ferramenta de apoio
+                    aos estudos, mas não deve substituir o pensamento
+                    crítico, a interpretação e a construção do conhecimento
+                    pelo próprio estudante.
                 </p>
 
             </div>
@@ -241,7 +292,19 @@
             <div class="conclusion-text">
 
                 <p>
-                    A análise dos resultados indica que a inteligência artificial está presente nos hábitos de estudo dos participantes e pode contribuir para o processo de aprendizagem. Entretanto, os dados também revelam que nem todos os estudantes utilizam as respostas de maneira produtiva. A análise aponta que a simples reprodução de informações ou a dificuldade de compreender o conteúdo podem limitar o desenvolvimento da autonomia intelectual. Portanto, a inteligência artificial deve ser utilizada como ferramenta complementar à educação, incentivando a pesquisa, a interpretação e o pensamento crítico, e não como substituta do esforço e da aprendizagem do estudante.
+                    A análise dos resultados indica que a inteligência
+                    artificial está presente nos hábitos de estudo dos
+                    participantes e pode contribuir para o processo de
+                    aprendizagem. Entretanto, os dados também revelam
+                    que nem todos os estudantes utilizam as respostas de
+                    maneira produtiva. A análise aponta que a simples
+                    reprodução de informações ou a dificuldade de
+                    compreender o conteúdo podem limitar o desenvolvimento
+                    da autonomia intelectual. Portanto, a inteligência
+                    artificial deve ser utilizada como ferramenta
+                    complementar à educação, incentivando a pesquisa,
+                    a interpretação e o pensamento crítico, e não como
+                    substituta do esforço e da aprendizagem do estudante.
                 </p>
 
             </div>
@@ -255,7 +318,9 @@
 
             <strong>DILEMAS DIGITAIS</strong>
 
-            <span>Educação · Tecnologia · Pensamento crítico</span>
+            <span>
+                Educação · Tecnologia · Pensamento crítico
+            </span>
 
         </footer>
 
