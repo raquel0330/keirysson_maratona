@@ -121,6 +121,27 @@ const usageChart = new Chart(
 // COMPORTAMENTO APÓS PESQUISAR
 // ========================================
 
+// Dados originais da pesquisa
+
+const dadosOriginais = {
+
+    labels: [
+        ["Apenas copio", "as respostas"],
+        ["Analiso, mas não", "adquiro conhecimento"],
+        ["Leio e obtenho", "conhecimentos"]
+    ],
+
+    valores: [1, 4, 17],
+
+    cores: [
+        cores.verdeSuave,
+        cores.verdeClaro,
+        cores.verde
+    ]
+
+};
+
+
 const learningChart = new Chart(
     document.getElementById("learningChart"),
     {
@@ -128,36 +149,15 @@ const learningChart = new Chart(
 
         data: {
 
-            labels: [
-
-                [
-                    "Apenas copio",
-                    "as respostas"
-                ],
-
-                [
-                    "Analiso, mas não",
-                    "adquiro conhecimento"
-                ],
-
-                [
-                    "Leio e obtenho",
-                    "conhecimentos"
-                ]
-
-            ],
+            labels: dadosOriginais.labels,
 
             datasets: [{
 
                 label: "Quantidade de estudantes",
 
-                data: [1, 4, 17],
+                data: dadosOriginais.valores,
 
-                backgroundColor: [
-                    cores.verdeSuave,
-                    cores.verdeClaro,
-                    cores.verde
-                ],
+                backgroundColor: dadosOriginais.cores,
 
                 borderRadius: 9,
                 borderSkipped: false,
@@ -275,7 +275,7 @@ const learningChart = new Chart(
 
 
 // ========================================
-// FILTRO INTERATIVO
+// FILTRO INTERATIVO GERAL
 // ========================================
 
 const chartFilter = document.getElementById("chartFilter");
@@ -306,6 +306,104 @@ chartFilter.addEventListener("change", function(event) {
     );
 
 });
+
+
+// ========================================
+// NOVO FILTRO DE DADOS
+// GRÁFICO 2 - APRENDIZAGEM
+// ========================================
+
+const dataFilter = document.getElementById("dataFilter");
+
+
+function atualizarFiltroDados() {
+
+    const opcaoSelecionada = dataFilter.value;
+
+
+    if (opcaoSelecionada === "all") {
+
+        // =================================
+        // MOSTRAR TODAS AS RESPOSTAS
+        // =================================
+
+        learningChart.data.labels = dadosOriginais.labels;
+
+        learningChart.data.datasets[0].data =
+            dadosOriginais.valores;
+
+        learningChart.data.datasets[0].backgroundColor =
+            dadosOriginais.cores;
+
+    } else {
+
+        // =================================
+        // DESTACAR RESPOSTA PREDOMINANTE
+        // =================================
+
+        const indicePredominante =
+            dadosOriginais.valores.indexOf(
+                Math.max(...dadosOriginais.valores)
+            );
+
+        const quantidadePredominante =
+            dadosOriginais.valores[indicePredominante];
+
+        const quantidadeOutras =
+            totalRespostas - quantidadePredominante;
+
+
+        learningChart.data.labels = [
+
+            [
+                "Leem e obtêm",
+                "conhecimentos"
+            ],
+
+            "Outras respostas"
+
+        ];
+
+
+        learningChart.data.datasets[0].data = [
+
+            quantidadePredominante,
+            quantidadeOutras
+
+        ];
+
+
+        learningChart.data.datasets[0].backgroundColor = [
+
+            cores.verdeEscuro,
+            cores.verdeSuave
+
+        ];
+
+    }
+
+
+    // =================================
+    // ATUALIZAR VISUALIZAÇÃO
+    // =================================
+
+    learningChart.update();
+
+}
+
+
+// ========================================
+// EVENTO DO FILTRO DE DADOS
+// ========================================
+
+if (dataFilter) {
+
+    dataFilter.addEventListener(
+        "change",
+        atualizarFiltroDados
+    );
+
+}
 
 
 // ========================================
